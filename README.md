@@ -11,7 +11,7 @@ Steps:
 
 Have added Terrafrom scripts and one shell script (restore_DB_from_snapshot.sh).
 
-Note: If we want to share the DB snapshot across region or different account, we need to encrpyt it with CMK and give access on it to target account.
+**Note:** If we want to share the DB snapshot across region or different account, we need to encrpyt it with CMK and give access on it to target account.
 
 Terrafrom script will be run on source account. It will do floowing things :
  - Create IAM role
