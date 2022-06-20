@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "cmk_key_policy" {
 
       identifiers = [
         "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root",
-        "arn:aws:iam::750285159662:root"
+        "arn:aws:iam::${var.target_account_id}:root"
       ]
     }
 
@@ -48,9 +48,4 @@ resource "aws_kms_key" "key" {
 resource "aws_kms_alias" "key_alias" {
   name          = "alias/${var.alias_name}"
   target_key_id = aws_kms_key.key.id
-}
-
-output "cmk_arn" {
-  description = "The ARN of the CMK"
-  value       = aws_kms_key.key.arn
 }
